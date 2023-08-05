@@ -104,12 +104,12 @@ static usb_host_mouse_instance_t *curr_mouse_inst;
 /* Constant TEXT for cli */
 
 #if defined(__FAT_BUILD__)
-const char *TEXT_WELCOME            = "**** FACTORY TESTER ****\r\n>";
+const char *TEXT_WELCOME            = "**** FACTORY TESTER ****\r\n> ";
 #else
-const char *TEXT_WELCOME            = "**** MaaxBoard RT CLI V1.0 ****\r\n>";
+const char *TEXT_WELCOME            = "**** MaaxBoard RT CLI ****\r\n> ";
 #endif
 
-const char *TEXT_ABORT_CMD			= "\r\n***Command Aborted****\r\n>";
+const char *TEXT_ABORT_CMD			= "\r\n***Command Aborted****\r\n> ";
 const char *TEXT_BUFFER_OVERRUN     = "\r\nRing buffer overrun!\r\n";
 const char *TEXT_HW_OVERRUN 		= "\r\nHardware buffer overrun!\r\n";
 const char *TEXT_VT100_CLEARSCREEN  = "\033[2J\033[H";

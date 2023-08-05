@@ -5,8 +5,6 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
-#ifdef NOT_MAAXBOARD_RT
-
 #include "fsl_sd.h"
 
 /*******************************************************************************
@@ -2290,4 +2288,3 @@ status_t SD_WaitCardDetectStatus(SDMMCHOST_TYPE *hostBase, const sdmmchost_detec
 {
     return SDMMCHOST_WaitCardDetectStatus(hostBase, cd, waitCardStatus);
 }
-#endif

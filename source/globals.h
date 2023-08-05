@@ -19,7 +19,7 @@
  * Definitions
  ******************************************************************************/
 /* Freertos task can be enabled by setting 1, disabled by setting 0 */
-#define GUI_EN			0
+#define GUI_EN			1
 #define WIFI_EN			1
 #define ETH100MB_EN		1
 #define ETH1GB_EN		1
@@ -30,7 +30,7 @@
 /* Maaxboard RT Version*/
 #define MAAXBOARD_VERSION_MAJOR	"1"
 #define MAAXBOARD_VERSION_MINOR	"0"
-#define MAAXBOARD_VERSION_DATE	"2023-01-08"
+#define MAAXBOARD_VERSION_DATE	"2023-08-04"
 #define MAAXBOARD_VERSION_STRING	"Avnet GUI Demo v"MAAXBOARD_VERSION_MAJOR"."MAAXBOARD_VERSION_MINOR" ["MAAXBOARD_VERSION_DATE"]"
 
 

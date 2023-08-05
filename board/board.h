@@ -20,7 +20,7 @@
 /*! @brief The board name */
 #define BOARD_NAME "MIMXRT1170-EVK"
 #ifndef DEBUG_CONSOLE_UART_INDEX
-#define DEBUG_CONSOLE_UART_INDEX 1	//6
+#define DEBUG_CONSOLE_UART_INDEX 6
 #endif
 
 /* The UART to use for debug messages. */
@@ -69,8 +69,8 @@
 #define MU_IRQ_PRIORITY (2)
 
 /*! @brief USER (GREEN) RGB LED on MaaXBoard RT Rev.1 and Rev.2 is on GPIO8_IO28 */
-#define LOGIC_LED_ON  (1U)
-#define LOGIC_LED_OFF (0U)
+#define LOGIC_LED_ON  (0U)
+#define LOGIC_LED_OFF (1U)
 #ifndef BOARD_USER_LED_GPIO
 #define BOARD_USER_LED_GPIO GPIO8        //MaaXBoard Rev.1 and Rev.2
 #endif

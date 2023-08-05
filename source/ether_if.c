@@ -268,9 +268,6 @@ static void cbETHNetIFStatus(struct netif *state_netif)
 /*!
  * @brief Main body for Ethetnet 100Mb task
  */
-void sys_lock_tcpip_core(void);
-void sys_unlock_tcpip_core(void);
-
 static void init_ENET_100mb()
 {
 #if defined(FSL_FEATURE_SOC_LPC_ENET_COUNT) && (FSL_FEATURE_SOC_LPC_ENET_COUNT > 0)
