@@ -44,19 +44,19 @@ TimerHandle_t timer;
 
 static void timer_poll_udp_client(TimerHandle_t timer);
 
-// Hardwired SSID, passphrase of Soft AP to star
+// Hardwired SSID, passphrase of Soft AP to start
+/* TODO: when is it used? Can we configure MaaXBoard-RT to provide an AP? - does not look like */
 #define AP_SSID       "NXP_Soft_AP"
 #define AP_PASSPHRASE "12345678"
 
-// Hardwired SSID, passphrase of AP to connect to
-// Change this to fit your AP
-
+// Hardwired SSID, passphrase of AP to connect to YOUR AP
+/* TODO: modify here to connect with command "wc" to your AP */
 #if defined(__FAT_BUILD__)
 #define EXT_AP_SSID       	"AVNET_5G"
 #define EXT_AP_PASSPHRASE 	""
 #else
-#define EXT_AP_SSID       	"max123"
-#define EXT_AP_PASSPHRASE 	"1qaz2wsx"
+#define EXT_AP_SSID       	"tjaekel"
+#define EXT_AP_PASSPHRASE 	"whatishelicopter"
 #endif
 
 #ifndef IPERF_SERVER_ADDRESS
@@ -182,41 +182,40 @@ int __scan_cb(unsigned int count)
 			else
 				sprintf(strBuffer, "(hidden)");
 
-			PRINTF(" %s \r\n", strBuffer);
+			PRINTF(" %s", strBuffer);
 
-			PRINTF("\tchannel: %d\r\n", res.channel);
+			PRINTF(" ch: %2d", res.channel);
 
 			char strBuffer2[40];
-			sprintf(strBuffer2, "rssi: -%d dBm", res.rssi);
+			sprintf(strBuffer2, " rssi: -%2d dBm", res.rssi);
 
-			PRINTF("\t%s\r\n", strBuffer2);
+			PRINTF("%s", strBuffer2);
 
 			char strBuffer3[100];
 			sprintf(strBuffer3, "%s, %s", strBuffer, strBuffer2);
-
 			addItemToSSIDList(strBuffer3);
 
-			PRINTF("\tsecurity: ");
+			PRINTF(" sec: ");
 			if (res.wep)
-				PRINTF("WEP ");
+				PRINTF("WEP");
 			if (res.wpa && res.wpa2)
-				PRINTF("WPA/WPA2 Mixed ");
+				PRINTF("WPA/WPA2 Mixed");
 			else
 			{
 				if (res.wpa)
-					PRINTF("WPA ");
+					PRINTF("WPA");
 				if (res.wpa2)
-					PRINTF("WPA2 ");
+					PRINTF("WPA2");
 				if (res.wpa3_sae)
-					PRINTF("WPA3 SAE ");
+					PRINTF("WPA3 SAE");
 				if (res.wpa2_entp)
 					PRINTF("WPA2 Enterprise");
 			}
 			if (!(res.wep || res.wpa || res.wpa2 || res.wpa3_sae || res.wpa2_entp))
 				PRINTF("OPEN ");
-			PRINTF("\r\n");
+			////PRINTF("\r\n");
 
-			PRINTF("\tWMM: %s\r\n", res.wmm ? "YES" : "NO");
+			PRINTF(" WMM: %s\r\n", res.wmm ? "YES" : "NO");
 		}
     }
     wifi_status |= (1<<BIT_SCAN_RDY);

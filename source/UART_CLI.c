@@ -589,7 +589,7 @@ static BaseType_t taskStatsCommand( char *pcWriteBuffer,size_t xWriteBufferLen, 
  * Description:
  *     This function initiates wifi scan, prints discovered networks on the console.
 \*****************************************************************************/
-static BaseType_t wifiScanCommand( char *pcWriteBuffer,size_t xWriteBufferLen, const char *pcCommandString )
+static BaseType_t wifiScanCommand(char *pcWriteBuffer, size_t xWriteBufferLen, const char *pcCommandString )
 {
     (void)pcCommandString;
     static int processed = 0;
@@ -650,39 +650,39 @@ static BaseType_t wifiScanCommand( char *pcWriteBuffer,size_t xWriteBufferLen, c
 					ssid_entry->bssid[5]);
 			if (ssid_entry->ssid[0])
 			{
-				length += sprintf(pcWriteBuffer+length, "\"%s\"\r\n", ssid_entry->ssid);
+				length += sprintf(pcWriteBuffer+length, "%-20s", ssid_entry->ssid);
 			}
 			else
 			{
-				length += sprintf(pcWriteBuffer+length, "(hidden)\r\n");
+				length += sprintf(pcWriteBuffer+length, "%-20s", "(hidden)");
 			}
-			length += sprintf(pcWriteBuffer+length, "\tchannel: %d", ssid_entry->channel);
-			length += sprintf(pcWriteBuffer+length, "\trssi: -%d dBm", ssid_entry->rssi);
-			length += sprintf(pcWriteBuffer+length, "\tsecurity: ");
+			length += sprintf(pcWriteBuffer+length, " ch: %3d", ssid_entry->channel);
+			length += sprintf(pcWriteBuffer+length, " rssi: -%2ddBm", ssid_entry->rssi);
+			length += sprintf(pcWriteBuffer+length, " sec: ");
 
 			if (ssid_entry->wep)
 			{
-				length += sprintf(pcWriteBuffer+length, "WEP ");
+				length += sprintf(pcWriteBuffer+length, "%-18s", "WEP ");
 			}
 
 			if (ssid_entry->wpa && ssid_entry->wpa2)
 			{
-				length += sprintf(pcWriteBuffer+length, "WPA/WPA2 Mixed ");
+				length += sprintf(pcWriteBuffer+length, "%-18s", "WPA/WPA2 Mixed ");
 			}
 			else
 			{
 				if (ssid_entry->wpa)
-					length += sprintf(pcWriteBuffer+length, "WPA ");
+					length += sprintf(pcWriteBuffer+length, "%-18s", "WPA ");
 				if (ssid_entry->wpa2)
-					length += sprintf(pcWriteBuffer+length, "WPA2 ");
+					length += sprintf(pcWriteBuffer+length, "%-18s", "WPA2 ");
 				if (ssid_entry->wpa3_sae)
-					length += sprintf(pcWriteBuffer+length, "WPA3 SAE ");
+					length += sprintf(pcWriteBuffer+length, "%-18s", "WPA3 SAE ");
 				if (ssid_entry->wpa2_entp)
-					length += sprintf(pcWriteBuffer+length, "WPA2 Enterprise");
+					length += sprintf(pcWriteBuffer+length, "%-18s", "WPA2 Enterprise ");
 			}
 			if (!(ssid_entry->wep || ssid_entry->wpa || ssid_entry->wpa2 || ssid_entry->wpa3_sae || ssid_entry->wpa2_entp))
-				length += sprintf(pcWriteBuffer+length, "OPEN ");
-			length += sprintf(pcWriteBuffer+length, "\tWMM: %s\r\n", ssid_entry->wmm ? "YES" : "NO");
+				length += sprintf(pcWriteBuffer+length, "%-18s", "OPEN ");
+			length += sprintf(pcWriteBuffer+length, " WMM: %s\r\n", ssid_entry->wmm ? "YES" : "NO");
 			processed++;
 			xReturn = pdTRUE;
     	}
@@ -1330,7 +1330,7 @@ static const CLI_Command_Definition_t helpCommandStruct =
 {
     "h",
     " ? / h      : Menu Help \r\n"
-	"========= "
+	"=========== "
 	MAAXBOARD_VERSION_STRING
 	"\r\n",
 	prvHelpCommand,

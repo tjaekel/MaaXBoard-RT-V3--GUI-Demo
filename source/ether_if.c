@@ -270,6 +270,9 @@ static void cbETHNetIFStatus(struct netif *state_netif)
  */
 static void init_ENET_100mb()
 {
+	   extern void sys_lock_tcpip_core(void);
+	   extern void sys_unlock_tcpip_core(void);
+
 #if defined(FSL_FEATURE_SOC_LPC_ENET_COUNT) && (FSL_FEATURE_SOC_LPC_ENET_COUNT > 0)
 	static mem_range_t non_dma_memory[] = NON_DMA_MEMORY_ARRAY;
 #endif /* FSL_FEATURE_SOC_LPC_ENET_COUNT */
@@ -346,6 +349,9 @@ static void init_ENET_100mb()
  */
 static void init_ENET_1g() // must be called after 100m
 {
+	extern void sys_lock_tcpip_core(void);
+	extern void sys_unlock_tcpip_core(void);
+
 #if defined(FSL_FEATURE_SOC_LPC_ENET_COUNT) && (FSL_FEATURE_SOC_LPC_ENET_COUNT > 0)
 	static mem_range_t non_dma_memory[] = NON_DMA_MEMORY_ARRAY;
 #endif /* FSL_FEATURE_SOC_LPC_ENET_COUNT */

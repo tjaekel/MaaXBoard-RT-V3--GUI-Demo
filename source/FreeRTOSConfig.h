@@ -164,7 +164,9 @@ standard names. */
 /* Definition for FreeRTOS CLI output buffer size */
 #define configCOMMAND_INT_MAX_OUTPUT_SIZE  128
 
- #define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() AppConfigureTimerForRuntimeStats()
- #define portGET_RUN_TIME_COUNTER_VALUE()         AppGetRuntimeCounterValueFromISR()
+extern void AppConfigureTimerForRuntimeStats(void);
+extern uint32_t AppGetRuntimeCounterValueFromISR(void);
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() AppConfigureTimerForRuntimeStats()
+#define portGET_RUN_TIME_COUNTER_VALUE()         AppGetRuntimeCounterValueFromISR()
 
 #endif /* FREERTOS_CONFIG_H */

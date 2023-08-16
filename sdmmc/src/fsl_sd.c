@@ -2284,7 +2284,8 @@ void SD_HostReset(SDMMCHOST_CONFIG *host)
 //    SDMMCHOST_PowerOffCard(base, pwr);
 //}
 
-status_t SD_WaitCardDetectStatus(SDMMCHOST_TYPE *hostBase, const sdmmchost_detect_card_t *cd, bool waitCardStatus)
-{
-    return SDMMCHOST_WaitCardDetectStatus(hostBase, cd, waitCardStatus);
-}
+//status_t SD_WaitCardDetectStatus(SDMMCHOST_TYPE *hostBase, const sdmmchost_detect_card_t *cd, bool waitCardStatus)
+//{
+    ////return SDMMCHOST_WaitCardDetectStatus(hostBase, cd, waitCardStatus);
+	////return SDMMCHOST_CardDetectStatus(hostBase);
+//}
